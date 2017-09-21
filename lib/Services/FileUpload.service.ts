@@ -50,6 +50,8 @@ export class FileUpload {
             };
         }).then((success)=>{
             this.fileUploadedEvent.emit([success, xhr.response, iFile]);
+        }, (reason)=>{
+            this.fileUploadedEvent.emit([reason, xhr.response, iFile]);
         });
 
         iFile.loading = true;
